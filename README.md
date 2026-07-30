@@ -1,3 +1,2 @@
 # testCplusplus
-//this is my first repo so i'm testing it with all the thing comethrough my mind
-//the codes in pointer.cpp are from VuNguyenCoder so they are a bit weird about their contents 
+new branch test hehe
