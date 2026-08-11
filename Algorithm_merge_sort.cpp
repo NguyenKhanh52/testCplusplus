@@ -3,8 +3,8 @@
 using namespace std;
 
 void Merge(vector<int> &a, int l, int m, int r) {
-  vector<int> L(a.begin() + l, a.begin() + m + 1);
-  vector<int> R(a.begin() + m + 1, a.begin() + r + 1);
+  vector<int> L(a.begin() + l, a.begin() + m + 1);  // tao mang phu L , +1 vi de lay den phan tu tai chi so m
+  vector<int> R(a.begin() + m + 1, a.begin() + r + 1);  // tao mang phu R , +1 vi de lay den phan tu tai chi so r
 
   int i = 0; // index duyet vector con L
   int j = 0; // index duyet vector con R
@@ -32,12 +32,11 @@ void mergesort(vector<int> &a, int l, int r) {
   int m = l + (r - l) / 2; // ko tinh (r + l) / 2 de tranh tran so
 
   mergesort(a, l, m);
-  mergesort(a, m + 1, r);
+  mergesort(a, m + 1, r);  // m+1 vi nua sau bat dau tu m+1
   Merge(a, l, m, r);
 }
 
-void Printar(const vector<int>
-                 &a) { // x : a cach viet gon hon for ( int i = 0 ; i < n ; i++)
+void Printar(const vector<int>  &a) { // x : a cach viet gon hon for ( int i = 0 ; i < n ; i++)
   for (int x : a)
     cout << x << " "; // x : a => gan cac ptu a vao x roi chay lenh cout
   cout << "\n";
