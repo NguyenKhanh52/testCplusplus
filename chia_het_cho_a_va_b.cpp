@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// Đếm số trong [m, n] chia hết cho k
+// Dem so trong [m, n] chia het cho k
 int countDiv(int m, int n, int k) {
     return n / k - (m - 1) / k;
 }
@@ -14,13 +14,9 @@ void solve() {
     if (m > n) swap(m, n);
 
     //BCNN(a, b) = a / GCD(a, b) * b
-    int lcm = a / __gcd(a, b) * b;// __gcd la cach viet ham co san trong C++
+    int lcm = a / __gcd( a , b ) * b;
 
-    //Nguyen ly bu tru
-    //(chia het A hoac B) = count(A) + count(B) - count(LCM)
-    int result = countDiv(m, n, a)
-               + countDiv(m, n, b)
-               - countDiv(m, n, lcm);
+    int result = countDiv( m ,n , lcm);
 
     cout << result << "\n";
 }
