@@ -19,19 +19,21 @@ int main() {
   // nen pointer arithmetic luon an toan
 
   con_nguoi ds[3] = {
-    con_nguoi(22, 95, 1.65),   // ds[0] = Thao
-    con_nguoi(18, 90, 1.70),   // ds[1] = Lan
-    con_nguoi(29, 85, 1.60)    // ds[2] = Huong
+      con_nguoi(22, 95, 1.65), // ds[0] = Thao
+      con_nguoi(18, 90, 1.70), // ds[1] = Lan
+      con_nguoi(29, 85, 1.60)  // ds[2] = Huong
   };
 
   // Con tro tro den phan tu dau tien cua mang
-  con_nguoi *ptr = ds;  // tuong duong: ptr = &ds[0]
+  con_nguoi *ptr = ds; // tuong duong: ptr = &ds[0]
 
   // --- Truy cap bang pointer arithmetic ---
 
   // ptr + 0 = phan tu thu 0 (Thao)
   std::cout << "=== Thao (ptr + 0) ===" << std::endl;
-  std::cout << "Tuoi:      " << (ptr)->tuoi << std::endl;
+  std::cout << "Tuoi:      " << (ptr)->tuoi
+            << std::endl; //(ptr)-> là 1 cách viết kháccủa ptr. 2 cách này tương
+                          //đương nhau
   std::cout << "Vong 1:    " << (ptr)->vong1 << std::endl;
   std::cout << "Chieu cao: " << (ptr)->chieu_cao << std::endl;
 
@@ -57,10 +59,10 @@ int main() {
 
   // --- Cach khac: di chuyen con tro ---
   std::cout << "\n=== Di chuyen con tro (ptr++) ===" << std::endl;
-  con_nguoi *p = ds;  // bat dau tu dau mang
+  con_nguoi *p = ds; // bat dau tu dau mang
   for (int i = 0; i < 3; i++) {
     std::cout << "Nguoi " << i << ": tuoi = " << p->tuoi << std::endl;
-    p++;  // nhay den phan tu tiep theo (an toan vi la mang!)
+    p++; // nhay den phan tu tiep theo (an toan vi la mang!)
   }
 
   system("pause");

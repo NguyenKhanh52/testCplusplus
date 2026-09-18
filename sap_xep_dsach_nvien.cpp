@@ -37,7 +37,6 @@ int main() {
   for (int i = 0; i < n; i++) {
     ds[i].maNV =
         taoMaNV(i + 1); // gán mã theo THỨ TỰ NHẬP VÀO, trước khi sắp xếp
-
     getline(cin, ds[i].hoTen);
     getline(cin, ds[i].gioiTinh);
     getline(cin, ds[i].ngaySinh);

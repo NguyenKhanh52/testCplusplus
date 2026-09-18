@@ -9,16 +9,16 @@ struct SinhVien {
   float diemGPA;
 };
 
-// Chuẩn hóa Họ tên: viết hoa chữ cái đầu mỗi từ, còn lại viết thường
+// chuan hoa ho ten
 string chuanHoaHoTen(string hoTen) {
-  for (auto &c : hoTen)
+  for (auto &c : hoTen) // for ( auto &c : hoTen ) = for ( char &c : hoTen )
     c = tolower((unsigned char)c);
   bool dauTu = true;
   for (auto &c : hoTen) {
     if (isspace((unsigned char)c)) {
       dauTu = true;
     } else {
-      if (dauTu)
+      if (dauTu) // if(dauTu) = if (dauTu == true)
         c = toupper((unsigned char)c);
       dauTu = false;
     }
@@ -26,7 +26,6 @@ string chuanHoaHoTen(string hoTen) {
   return hoTen;
 }
 
-// Chuẩn hóa ngày sinh về đúng dạng dd/mm/yyyy
 string chuanHoaNgaySinh(string ngaySinhRaw) {
   replace(ngaySinhRaw.begin(), ngaySinhRaw.end(), '/', ' ');
 
@@ -41,7 +40,6 @@ string chuanHoaNgaySinh(string ngaySinhRaw) {
   return ketQua.str();
 }
 
-// Tự sinh Mã SV: B20DCCN + số thứ tự 3 chữ số
 string taoMaSV(int stt) {
   stringstream ss;
   ss << "B20DCCN" << setw(3) << setfill('0') << stt;
@@ -52,20 +50,20 @@ int main() {
   int n;
   cin >> n;
   cin.ignore(numeric_limits<streamsize>::max(),
-             '\n'); // bỏ newline còn sót sau khi đọc n
+             '\n'); // bo \n con sot sau cin>>n
 
   vector<SinhVien> ds(n);
 
   for (int i = 0; i < n; i++) {
     string hoTenRaw, ngaySinhRaw;
 
-    ds[i].maSV = taoMaSV(i + 1); // mã SV tự sinh theo thứ tự
-    getline(cin, hoTenRaw);  // họ tên (có khoảng trắng, có thể sai hoa/thường)
-    getline(cin, ds[i].lop); // lớp
-    getline(cin, ngaySinhRaw); // ngày sinh (chưa chuẩn)
-    cin >> ds[i].diemGPA;      // điểm GPA
+    ds[i].maSV = taoMaSV(i + 1);
+    getline(cin, hoTenRaw);
+    getline(cin, ds[i].lop);
+    getline(cin, ngaySinhRaw);
+    cin >> ds[i].diemGPA;
     cin.ignore(numeric_limits<streamsize>::max(),
-               '\n'); // bỏ newline trước lần getline kế tiếp
+               '\n'); // bo \n con sot sau cin >> gpa
 
     ds[i].hoTen = chuanHoaHoTen(hoTenRaw);
     ds[i].ngaySinh = chuanHoaNgaySinh(ngaySinhRaw);
@@ -77,5 +75,6 @@ int main() {
          << "\n";
   }
 
+  system("pause");
   return 0;
 }
