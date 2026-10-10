@@ -1,28 +1,38 @@
 #include <bits/stdc++.h>
-#include <filesystem>
 using namespace std;
 
-class hcn {
-private:
-  double dai;
-  double rong;
+class Phuongtien {
+protected:
+  string plate;
+  double maxspeed;
 
 public:
-  hcn(double dai, double rong) {
-    void check(double a, double b) {
-      if (a <= 0 || b <= 0)
-        a == 1, b == 1;
-    }
+  Phuongtien(string pl, double sp) {
+    plate = pl;
+    maxspeed = sp;
   }
+  double getmaxspeed() { return maxspeed; }
+  void display() {
+    cout << "Bien so: " << plate << endl
+         << "Toc do toi da : " << maxspeed << "km/h" << endl;
+  }
+};
+class xetai : public Phuongtien {
+private:
+  double weight;
 
-  double dientich(double a, double b) { return a * b; }
-  double chuvi(double a, double b) { return (a + b) * 2; }
-}
+public:
+  xetai(string pl, double sp, double tt) : Phuongtien(pl, sp) { weight = tt; }
+  bool checksp(double speed) { return speed <= maxspeed; }
+};
 
-int main () {
-  hcn hinh1(5, 3), hinh2(-2, 4);
-  cout << "dien tich hinh va chu vi 1: " << hinh1.dientich() << " "
-       << hinh1.chuvi() << endl;
-  cout << "dien tich hinh va chu vi 2: " << hinh2.dientich() << " "
-       << hinh2.chuvi() << endl;
+int main() {
+  xetai xe1("29C1", 38, 36);
+  xe1.display();
+
+  double currentsp = 18;
+  cout << "Toc do toi da: " << xe1.getmaxspeed() << endl
+       << "Kiem tra toc do: " << currentsp << xe1.checksp(currentsp) << endl;
+
+  return 0;
 }
