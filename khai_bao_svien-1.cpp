@@ -71,7 +71,11 @@ int main() {
   svien a;
   a.nhap();
   a.chuanhoahoten();
+<<<<<<< HEAD
   a.chuanhoadob();
+=======
+  a.chuanhoandob();
+>>>>>>> 789fcb5fda95f18f2148af51487a280d8d3128c8
   a.in();
 
   system("pause");
