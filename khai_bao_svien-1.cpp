@@ -70,7 +70,7 @@ public:
 int main() {
   svien a;
   a.nhap();
-  a.chuanhoahoten();
+  a.chuanhoaten();
   a.chuanhoadob();
   a.in();
 
